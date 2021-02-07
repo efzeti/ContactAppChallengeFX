@@ -1,5 +1,6 @@
-package sample.model;
+package contactApp.model;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javax.xml.stream.XMLEventFactory;
@@ -32,10 +33,19 @@ public class ContactData {
     private ObservableList<Contact> contacts;
 
     public ContactData() {
-        // *** initialize the contacts list here ***
+        contacts = FXCollections.observableArrayList();
     }
 
-    // *** Add methods to add/delete/access contacts here ***
+    public void addContact(Contact contact){
+        contacts.add(contact);
+    }
+    public void removeContact(Contact contact){
+        contacts.remove(contact);
+    }
+
+    public ObservableList<Contact> getContacts(){
+        return contacts;
+    }
 
     public void loadContacts() {
         try {
@@ -76,7 +86,7 @@ public class ContactData {
                     if (event.asStartElement().getName().getLocalPart()
                             .equals(PHONE_NUMBER)) {
                         event = eventReader.nextEvent();
-                        contact.setPhoneNumber(event.asCharacters().getData());
+                        contact.setPhone(event.asCharacters().getData());
                         continue;
                     }
 
@@ -158,7 +168,7 @@ public class ContactData {
         // Write the different nodes
         createNode(eventWriter, FIRST_NAME, contact.getFirstName());
         createNode(eventWriter, LAST_NAME, contact.getLastName());
-        createNode(eventWriter, PHONE_NUMBER, contact.getPhoneNumber());
+        createNode(eventWriter, PHONE_NUMBER, contact.getPhone());
         createNode(eventWriter, NOTES, contact.getNotes());
 
         eventWriter.add(eventFactory.createEndElement("", "", CONTACT));
