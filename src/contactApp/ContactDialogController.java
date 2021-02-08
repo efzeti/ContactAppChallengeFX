@@ -4,7 +4,7 @@ import contactApp.model.Contact;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class AddContactDialogController {
+public class ContactDialogController {
 
     @FXML
     private TextField firstNameTextField;
@@ -39,4 +39,19 @@ public class AddContactDialogController {
 
         return new Contact(firstname, lastName, phone, notes);
     }
+
+    public void editContact(Contact contact) {
+        firstNameTextField.setText(contact.getFirstName());
+        lastNameTextField.setText(contact.getLastName());
+        phoneTextField.setText(contact.getPhone());
+        notesTextField.setText(contact.getNotes());
+    }
+
+    public void saveEdit(Contact contact) {
+        contact.setFirstName(firstNameTextField.getText());
+        contact.setLastName(lastNameTextField.getText());
+        contact.setPhone(phoneTextField.getText());
+        contact.setNotes(notesTextField.getText());
+    }
+
 }

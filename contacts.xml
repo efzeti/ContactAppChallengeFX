@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<first_name>SampleName</first_name>
+	<last_name>SampleLastName</last_name>
+	<phone_number>123456789</phone_number>
+	<notes>SampleNote</notes>
+</contact>
+<contact>
+	<first_name>NewName</first_name>
+	<last_name>NewLastName</last_name>
+	<phone_number>987654321</phone_number>
+	<notes>NewNote</notes>
+</contact>
+<contact>
+	<first_name>1</first_name>
+	<last_name>2</last_name>
+	<phone_number>3</phone_number>
+	<notes>422</notes>
+</contact>
+</contacts>
