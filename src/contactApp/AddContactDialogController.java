@@ -1,5 +1,6 @@
 package contactApp;
 
+import contactApp.model.Contact;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -28,5 +29,14 @@ public class AddContactDialogController {
 
     public String getNotes() {
         return notesTextField.getText();
+    }
+
+    public Contact getContact(){
+        String firstname = firstNameTextField.getText();
+        String lastName = lastNameTextField.getText();
+        String phone = phoneTextField.getText();
+        String notes = notesTextField.getText();
+
+        return new Contact(firstname, lastName, phone, notes);
     }
 }

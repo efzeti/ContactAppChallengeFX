@@ -22,11 +22,13 @@ public class Controller {
     public VBox mainVBox;
 
     @FXML
-    ContactData contactData = new ContactData();
+    ContactData contactData;
 
     @FXML
     public void initialize(){
-        contactData.addContact(new Contact("a","b","1","c"));
+        contactData = new ContactData();
+        contactData.addContact(new Contact("SampleName","SampleLastName","123456789","SampleNote"));
+        contactData.loadContacts();
         contactsTableView.setItems(contactData.getContacts());
     }
 
@@ -61,7 +63,7 @@ public class Controller {
 
             AddContactDialogController controller = fxmlLoader.getController();
 
-            contactData.addContact(new Contact(controller.getFirstName(),controller.getLastName(),controller.getPhone(),controller.getNotes()));
+            contactData.addContact(controller.getContact());
 
 
             System.out.println("OK pressed");
